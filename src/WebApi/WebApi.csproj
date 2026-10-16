@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>badcleanarch-webapi</UserSecretsId>
   </PropertyGroup>
+
+  <!-- Composition root: WebApi conoce Application (casos de uso) e Infrastructure (para registrarla). -->
   <ItemGroup>
-    <!-- BAD: Web directly references everything (tight coupling) -->
-    <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
