@@ -26,8 +26,8 @@ public sealed class OrdersController : ControllerBase
         var command = new CreateOrderCommand(
             request.CustomerName,
             request.ProductName,
-            request.Quantity,
-            request.UnitPrice);
+            request.Quantity!.Value,
+            request.UnitPrice!.Value);
 
         var order = await _createOrder.ExecuteAsync(command, cancellationToken);
 
